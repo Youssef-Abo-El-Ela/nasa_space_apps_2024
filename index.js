@@ -2,15 +2,18 @@ const { sequelize, app, express } = require('./src/config')
 const mainRouter = require('./src/routes')
 const dotenv = require('dotenv');
 const cors = require('cors');
-const corsObj = {
-    origin:'*',
-    credentials: true,
-    optionSuccessStatus: 200
-}
+// const corsObj = {
+//     origin:'*',
+//     credentials: true,
+//     optionSuccessStatus: 200
+// }
 dotenv.config()
 const port = process.env.port || 3000
-app.use(cors(corsObj));
-
+app.use(cors({
+    origin: process.env.NEXT_PUBLIC_FRONTEND_URL, // Replace with your frontend URL
+    methods: ['POST'],
+    allowedHeaders: ['Content-Type'],
+}));
 const test = async () => {
 
     try {
