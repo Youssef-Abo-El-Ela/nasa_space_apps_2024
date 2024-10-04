@@ -1,11 +1,13 @@
-const {Client} = require('pg');
+const { Sequelize } = require('sequelize');
 const express = require('express');
+const dotenv = require('dotenv');
+dotenv.config()
 const app = express()
 
 const connectionString = process.env.DATABASE_URL
 
-const client = new Client(
-    connectionString
-)
+const sequelize = new Sequelize(connectionString,{
+    dialect:'postgres'
+})
 
-module.exports= {client , express, app}
+module.exports= {sequelize , express, app}
