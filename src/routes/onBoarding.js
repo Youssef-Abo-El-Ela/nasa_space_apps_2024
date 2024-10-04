@@ -1,3 +1,6 @@
 const express = require('express');
-const router = express.Router()
+const routerOnBoarding = express.Router()
 
+routerOnBoarding.post('/login')
+
+module.exports = {routerOnBoarding}
