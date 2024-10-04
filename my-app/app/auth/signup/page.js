@@ -1,9 +1,10 @@
 import SignUp from "@/components/auth/SignUp";
 
-function Home() {
+function SignUpPage() {
+
   return (
     <SignUp />
   );
 }
 
-export default Home;
+export default SignUpPage;

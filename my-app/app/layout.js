@@ -6,10 +6,12 @@ export const metadata = {
   description: "Web App That Helps Farmers",
 };
 
+const inter = Inter({ subsets: ['latin'] });
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={Inter.className}>
+      <body className={inter.className}>
         {children}
       </body>
     </html>
