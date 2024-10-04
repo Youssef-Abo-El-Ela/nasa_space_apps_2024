@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors')
 dotenv.config()
 const port = process.env.port || 3000
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: '*', credentials: true }));
 
 const test = async () => {
 
