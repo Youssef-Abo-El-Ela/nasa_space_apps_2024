@@ -4,7 +4,17 @@ const dotenv = require('dotenv');
 const cors = require('cors')
 dotenv.config()
 const port = process.env.port || 3000
-app.use(cors({ origin: '*', credentials: true }));
+app.use(cors({
+    origin: (origin, callback) => {
+        const allowedOrigins = ['http://example.com', 'https://nasa-farmers.vercel.app'];
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
+}));
 
 const test = async () => {
 
