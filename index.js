@@ -16,6 +16,7 @@ const test =async ()=>{
 test()
 app.use(express.json())
 app.use('/api', mainRouter)
+app.get('/', (req, res) => res.json({message: "yarab"}))
 app.listen(port, () => {
     console.log('Server listenting on port', port);
 })
