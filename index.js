@@ -10,9 +10,9 @@ const cors = require('cors');
 dotenv.config()
 const port = process.env.port || 3000
 app.use(cors({
-    origin: process.env.NEXT_PUBLIC_FRONTEND_URL, // Replace with your frontend URL
-    methods: ['POST'],
-    allowedHeaders: ['Content-Type'],
+    origin: '*', // Replace with your frontend URL
+    methods: '*',
+    allowedHeaders: '*',
 }));
 const test = async () => {
 
