@@ -23,7 +23,7 @@ const login = async (request, response)=>{
             return response.status(401).send('Incorrect credentials.');
         }
         
-        return response.status(200).send(foundFarmer.json());
+        return response.status(200).json(foundFarmer);
     }
     catch(error){
         return response.status(404).send(error);
