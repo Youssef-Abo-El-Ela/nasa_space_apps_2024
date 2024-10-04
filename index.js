@@ -1,20 +1,15 @@
 const { sequelize, app, express } = require('./src/config')
 const mainRouter = require('./src/routes')
 const dotenv = require('dotenv');
-const cors = require('cors')
+const cors = require('cors');
+const corsObj = {
+    origin:'*',
+    credentials: true,
+    optionSuccessStatus: 200
+}
 dotenv.config()
 const port = process.env.port || 3000
-app.use(cors({
-    origin: (origin, callback) => {
-        const allowedOrigins = ['http://example.com', 'https://nasa-farmers.vercel.app'];
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true
-}));
+app.use(cors(corsObj));
 
 const test = async () => {
 
