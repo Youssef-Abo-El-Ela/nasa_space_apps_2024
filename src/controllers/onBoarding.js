@@ -10,5 +10,25 @@ const register = async (req, res, next) => {
     }
 }
 
+const login = async (request, response)=>{
+    try{
 
-module.exports = {register}
+        const {phoneNumber, farmerPassword} = request.body;
+        
+        const foundFarmer = await farmer.findOne({
+            where: {'phone_number': phoneNumber, 'farmer_password': farmerPassword},
+          });
+
+        if (!foundFarmer){
+            return response.status(401).send('Incorrect credentials.');
+        }
+        
+        return response.status(200).send(foundFarmer.json());
+    }
+    catch(error){
+        return response.status(404).send(error);
+    }
+}
+
+
+module.exports = {register, login}
